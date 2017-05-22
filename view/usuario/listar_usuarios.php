@@ -25,7 +25,7 @@
 							class="btn btn-warning btn-circle">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a href='acao=deletar_usuario&id=<?=  $value->id; ?>'
+						<a href='?acao=deletar_usuario&id=<?=  $value->id; ?>'
 							class="btn btn-danger btn-circle"
 							onclick='return confirm(\"Deseja realmente deletar?\")'>
 							<i class="fa fa-trash-o"></i>
