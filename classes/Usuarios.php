@@ -37,7 +37,7 @@ class Usuarios extends Crud
         }
     }
 
-    public function find($id)
+    public function findInnerJoin($id)
     {
         $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table
                  INNER JOIN cargos ON ( usuarios.id_cargo = cargos.id)
@@ -51,7 +51,7 @@ class Usuarios extends Crud
         return $stmt->fetch();
     }
 
-    public function findAll()
+    public function findAllInnerJoin()
     {
       $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table
                INNER JOIN cargos ON ( usuarios.id_cargo = cargos.id)";

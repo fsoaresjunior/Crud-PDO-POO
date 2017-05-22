@@ -28,7 +28,7 @@ class Get
 
             $id = (int)$_GET['id'];
 
-            $resultado = $parans['usuario']->find($id);
+            $resultado = $parans['usuario']->findInnerJoin($id);
 
             include "view/usuario/formulario_usuario_atualizar.php";
 
