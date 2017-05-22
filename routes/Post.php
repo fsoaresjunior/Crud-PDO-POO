@@ -43,7 +43,8 @@ class Post
           $parans['usuario']->setCargo($_POST['cargo']);
 
           if ($parans['usuario']->setEmail($_POST['email'])) {
-              $parans['usuario']->update($_POST['id']); ?>
+              $parans['usuario']->update($_POST['id']);
+              ?>
                 <div class="alert alert-success alert-dismissable">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                   Atualizado com sucesso!
@@ -91,7 +92,6 @@ class Post
       case 'Atualizar cargo':
 
           $parans['cargo']->setNome($_POST['cargo']);
-
           if ($parans['cargo']->update($_POST['id'])) {
               ?>
               <div class="alert alert-success alert-dismissable">
