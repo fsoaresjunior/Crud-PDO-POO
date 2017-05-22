@@ -53,13 +53,13 @@ if (isset($_SESSION['logado'])) {
             $usuario->setSenha($_POST['senha']);
             $usuario->setCargo($_POST['cargo']);
             if ($usuario->setEmail($_POST['email'])) {
-                $usuario->update($_POST['id']); ?>
-				<div class="alert alert-success alert-dismissable">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					Atualizado com sucesso!
-				</div>
-				<?php
-
+                $usuario->update($_POST['id']);
+                  ?>
+          				<div class="alert alert-success alert-dismissable">
+          					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          					Atualizado com sucesso!
+          				</div>
+          				<?php
             } else {
                 ?>
 				<div class="alert alert-danger alert-dismissable">

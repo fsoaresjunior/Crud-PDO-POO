@@ -31,13 +31,13 @@
 				<select class="form-control"	 name="cargo">
 					<?php foreach ($cargo->findAll() as $key => $value): ?>
 						<option <?= $selected = ($resultado->id_cargo == $value->id) ? 'selected="selected"' : '' ; ?>
-						value="<?= $value->id;?>"><?= $value->nome;?></option>
+						value="<?= $value->id;?>"><?= $value->cargo;?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>
 
 			<div class="form-group input-group">
-				<input type="hidden" name="id" value="<?= $resultado->id; ?>">
+				<input type="hidden" name="id" value="<?= $resultado->user_id; ?>">
 				<input type="submit" name="acao" value="Atualizar usuario" class="btn btn-success">
 			</div>
 		</fieldset>

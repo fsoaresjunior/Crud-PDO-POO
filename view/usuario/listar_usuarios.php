@@ -8,24 +8,24 @@
 					<th>Nome:</th>
 					<th>E-mail:</th>
 					<th>Senha:</th>
-					<th>ID Cargo:</th>
+					<th>Cargo:</th>
 					<th>Ações:</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php	foreach ($usuario->findAll() as $key => $value): ?>
 				<tr>
-					<td><?= $value->id; ?></td>
+					<td><?= $value->user_id; ?></td>
 					<td><?= $value->nome; ?></td>
 					<td><?= $value->email; ?></td>
 					<td><?= $value->senha; ?></td>
-					<td><?= $value->id_cargo; ?></td>
+					<td><?= $value->cargo; ?></td>
 					<td>
-						<a href='?acao=editar_usuario&id=<?= $value->id; ?>'
+						<a href='?acao=editar_usuario&id=<?= $value->user_id; ?>'
 							class="btn btn-warning btn-circle">
 							<i class="fa fa-pencil"></i>
 						</a>
-						<a href='?acao=deletar_usuario&id=<?=  $value->id; ?>'
+						<a href='?acao=deletar_usuario&id=<?=  $value->user_id; ?>'
 							class="btn btn-danger btn-circle"
 							onclick='return confirm(\"Deseja realmente deletar?\")'>
 							<i class="fa fa-trash-o"></i>

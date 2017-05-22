@@ -14,7 +14,7 @@ class Cargos extends Crud
 
     public function insert()
     {
-        $sql  = "INSERT INTO $this->table (nome) VALUES (:nome)";
+        $sql  = "INSERT INTO $this->table (cargo) VALUES (:nome)";
         $stmt = DB::prepare($sql);
 
         $stmt->bindValue(':nome', $this->nome, PDO::PARAM_STR);
@@ -22,9 +22,17 @@ class Cargos extends Crud
         return $stmt->execute();
     }
 
+    public function findByNome($nome){
+        $sql = "SELECT * FROM $this->table WHERE cargo = :nome";
+        $stmt = DB::prepare($sql);
+        $stmt->bindValue(':nome', $nome, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
     public function update($id)
     {
-        $sql  = "UPDATE $this->table SET nome = :nome WHERE id = :id";
+        $sql  = "UPDATE $this->table SET cargo = :nome WHERE id = :id";
         $stmt = DB::prepare($sql);
 
         $stmt->bindValue(':nome', $this->nome, PDO::PARAM_STR);

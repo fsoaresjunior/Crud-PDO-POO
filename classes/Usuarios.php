@@ -61,7 +61,9 @@ class Usuarios extends Crud
     public function update($id)
     {
         try {
-            $sql  = "UPDATE $this->table SET nome = :nome, email = :email, senha = :senha, id_cargo = :cargo WHERE id = :id";
+            $sql  = "UPDATE $this->table SET nome = :nome, email = :email,
+                                             senha = :senha, id_cargo = :cargo
+                                             WHERE id = :id";
             $stmt = DB::prepare($sql);
 
             $stmt->bindValue(':nome', $this->nome, PDO::PARAM_STR);
@@ -74,5 +76,38 @@ class Usuarios extends Crud
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
+    }
+
+    public function find($id)
+    {
+        $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table $this->table
+                 INNER JOIN cargos ON ( usuarios.id_cargo = cargos.id)
+                 WHERE usuarios.id = :id";
+        $stmt = DB::prepare($sql);
+
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
+    public function findAll()
+    {
+      $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table $this->table
+               INNER JOIN cargos ON ( usuarios.id_cargo = cargos.id)";
+        $stmt = DB::prepare($sql);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    public function findByEmail($email){
+        $sql = "SELECT * FROM $this->table WHERE email = :email";
+        $stmt = DB::prepare($sql);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
     }
 }

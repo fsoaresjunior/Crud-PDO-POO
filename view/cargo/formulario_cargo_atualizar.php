@@ -7,7 +7,7 @@
 				<span class="input-group-addon">
 					<i class="fa fa-briefcase" aria-hidden="true"></i>
 				</span>
-				<input type="text" name="cargo" class="form-control"  value="<?= $resultado->nome; ?>"/>
+				<input type="text" name="cargo" class="form-control"  value="<?= $resultado->cargo; ?>"/>
 			</div>
 			<input type="hidden" name="id" value="<?= $resultado->id; ?>">
 			<div class="form-group input-group">

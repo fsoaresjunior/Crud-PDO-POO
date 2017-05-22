@@ -4,7 +4,6 @@
 		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
-					<th>Id:</th>
 					<th>Nome:</th>
 					<th>Ações:</th>
 				</tr>
@@ -12,8 +11,7 @@
 			<tbody>
 			<?php foreach ($cargo->findAll() as $key => $value): ?>
 				<tr>
-					<td><?= $value->id; ?></td>
-					<td><?= $value->nome; ?></td>
+					<td><?= $value->cargo; ?></td>
 					<td>
 						<a href='?acao=editar_cargo&id=<?= $value->id; ?>'
 							class="btn btn-warning btn-circle">
