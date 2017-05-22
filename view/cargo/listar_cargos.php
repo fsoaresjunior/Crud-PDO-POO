@@ -9,7 +9,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<?php foreach ($cargo->findAll() as $key => $value): ?>
+			<?php foreach ($parans['cargo']->findAll() as $key => $value): ?>
 				<tr>
 					<td><?= $value->cargo; ?></td>
 					<td>

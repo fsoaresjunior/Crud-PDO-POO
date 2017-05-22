@@ -6,7 +6,7 @@
                         <h3 class="panel-title">Sistema C.R.U.D </h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="index.php">
+                        <form role="form" method="post" action="index.php?acao=logar">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
@@ -14,7 +14,7 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Senha" name="senha" type="password">
                                 </div>
-																<input type="submit" class="btn btn-lg btn-success btn-block" name="logar" value="logar">
+																<input type="submit" class="btn btn-lg btn-success btn-block" name="acao" value="logar">
                             </fieldset>
                         </form>
                     </div>

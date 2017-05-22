@@ -13,7 +13,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php	foreach ($usuario->findAll() as $key => $value): ?>
+				<?php	foreach ($parans['usuario']->findAll() as $key => $value): ?>
 				<tr>
 					<td><?= $value->user_id; ?></td>
 					<td><?= $value->nome; ?></td>

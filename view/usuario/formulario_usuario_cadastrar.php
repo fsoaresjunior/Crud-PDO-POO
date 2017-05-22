@@ -29,7 +29,7 @@
 
 			<div class="form-group input-group">
 				<select class="form-control"	 name="cargo">
-					<?php foreach ($cargo->findAll() as $key => $value): ?>
+					<?php foreach ($parans['cargo']->findAll() as $key => $value): ?>
 						<option value="<?= $value->id;?>"><?= $value->cargo;?></option>
 					<?php endforeach; ?>
 				</select>
