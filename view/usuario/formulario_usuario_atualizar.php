@@ -28,7 +28,7 @@
 			</div>
 
 			<div class="form-group input-group">
-				<select class="form-control"	 name="cargo">
+				<select class="form-control cargos"	 name="cargo">
 					<?php foreach ($parans['cargo']->findAll() as $key => $value): ?>
 						<option <?= $selected = ($resultado->id_cargo == $value->id) ? 'selected="selected"' : '' ; ?>
 						value="<?= $value->id;?>"><?= $value->cargo;?></option>
