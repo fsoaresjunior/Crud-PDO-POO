@@ -80,7 +80,7 @@ class Usuarios extends Crud
 
     public function find($id)
     {
-        $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table $this->table
+        $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table
                  INNER JOIN cargos ON ( usuarios.id_cargo = cargos.id)
                  WHERE usuarios.id = :id";
         $stmt = DB::prepare($sql);
@@ -94,7 +94,7 @@ class Usuarios extends Crud
 
     public function findAll()
     {
-      $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table $this->table
+      $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table
                INNER JOIN cargos ON ( usuarios.id_cargo = cargos.id)";
         $stmt = DB::prepare($sql);
 
