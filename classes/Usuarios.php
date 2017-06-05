@@ -6,6 +6,13 @@ class Usuarios extends Crud
 {
     protected $table = 'usuarios';
 
+    private $db;
+
+    public function __construct()
+    {
+        $this->db = DB::getInstance();
+    }
+
     public function setNome($nome)
     {
         $this->parans['nome'] = $nome;
@@ -42,7 +49,7 @@ class Usuarios extends Crud
         $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table
                  INNER JOIN cargos ON ( usuarios.id_cargo = cargos.id)
                  WHERE usuarios.id = :id";
-        $stmt = DB::prepare($sql);
+        $stmt = $this->db->prepare($sql);
 
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
@@ -55,7 +62,7 @@ class Usuarios extends Crud
     {
       $sql  = "SELECT *, $this->table.id AS user_id FROM $this->table
                INNER JOIN cargos ON ( usuarios.id_cargo = cargos.id)";
-        $stmt = DB::prepare($sql);
+        $stmt = $this->db->prepare($sql);
 
         $stmt->execute();
 
@@ -64,7 +71,7 @@ class Usuarios extends Crud
 
     public function findByEmail($email){
         $sql = "SELECT * FROM $this->table WHERE email = :email";
-        $stmt = DB::prepare($sql);
+        $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetch();

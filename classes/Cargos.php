@@ -5,6 +5,12 @@ require_once 'Crud.php';
 class Cargos extends Crud
 {
     protected $table = 'cargos';
+    private $db;
+
+    public function __construct()
+    {
+        $this->db = DB::getInstance();
+    }
 
     public function setNome($nome)
     {
@@ -13,7 +19,7 @@ class Cargos extends Crud
 
     public function findByNome($nome){
         $sql = "SELECT * FROM $this->table WHERE cargo = :nome";
-        $stmt = DB::prepare($sql);
+        $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':nome', $nome, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetch();

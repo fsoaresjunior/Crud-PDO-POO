@@ -1,11 +1,18 @@
 <?php
 
-class Login extends DB
+class Login// extends DB
 {
+    private $db;
+
+    public function __construct()
+    {
+        $this->db = DB::getInstance();
+    }
+
     public function logar($email, $senha)
     {
         $sql  = "SELECT * FROM 	usuarios WHERE email = :email AND senha = :senha";
-        $stmt = DB::prepare($sql);
+        $stmt = $this->db->prepare($sql);
 
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->bindValue(':senha', $senha, PDO::PARAM_STR);
