@@ -1,14 +1,34 @@
 <?php
 
+/**
+ * Class DB
+ */
 class DB
 {
+    /**
+     * @var PDO recebe uma instância de PDO
+     */
     private static $instance;
+
+    /**
+     * @var array recebe os dados do arquivo db_conf.ini
+     */
     private static $data;
 
+
+    /**
+     * DB constructor.
+     */
     private function __construct()
     {
     }
 
+    /**
+     * Captura as informações do arquivo db_conf.ini.
+     * Retorna os dados do arquivo.
+     *
+     * @return array|bool dados do arquivo.
+     */
     public static function data()
     {
         if (file_exists("db_conf.ini")) {
@@ -16,6 +36,13 @@ class DB
         }
     }
 
+    /**
+     * Faz a conexão com o banco de dados.
+     * Utiliza os dados retonados do método data().
+     *
+     * @see data()
+     * @return PDO
+     */
     public static function getInstance()
     {
         self::$data = self::data();
